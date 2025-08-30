@@ -24,8 +24,18 @@ This setup is designed for a **keyboard-driven workflow**, focusing on terminal 
 
 ## Installation
 
-```bash
-sudo dnf install sway alacritty tmux mako pipewire pipewire-pulseaudio
-# Optional extras:
-sudo dnf install waybar rofi slurp grim playerctl wl-clipboard
+These dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/).
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repo-url> ~/.dotfiles
+    cd ~/.dotfiles
+    ```
+
+2.  **Run the installation script:**
+    ```bash
+    ./install.sh
+    ```
+
+The script will install all dependencies and use `stow` to symlink the configuration files into place.
 
