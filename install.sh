@@ -25,6 +25,11 @@ log "Stowing dotfiles..."
 # The * will expand to all the package directories inside.
 (cd stow && stow -v -t "$HOME" *)
 
+# Copy wallpapers.
+log "Copying wallpapers..."
+mkdir -p "$HOME/Pictures/wallpapers"
+cp -r wallpapers/* "$HOME/Pictures/wallpapers/"
+
 # Make scripts executable.
 log "Setting execute permissions..."
 chmod +x "$HOME/.config/sway/screenshot.sh"
