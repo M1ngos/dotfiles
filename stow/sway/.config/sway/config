@@ -243,5 +243,5 @@ seat * xcursor_theme Bibata-Modern-Classic 24
 bar swaybar_command waybar 
 
 include /etc/sway/config.d/*
-output HDMI-A-1 bg /home/mingos/Pictures/wallpapers/mona.jpg fill
-output DP-1 bg /home/mingos/Pictures/wallpapers/sandy.png fill
+output HDMI-A-1 bg ~/Pictures/wallpapers/mona.jpg fill
+output DP-1 bg ~/Pictures/wallpapers/sandy.png fill
