@@ -46,6 +46,7 @@ default_floating_border pixel 2
 smart_borders on
 gaps inner 6
 
+client.focused          #FF8800  #3b4252  #d8dee9  #FF8800  #3b4252
 
 #
 # Multimedia:
@@ -73,9 +74,9 @@ bindsym --locked {
 # Example configuration:
 #
  exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
+          timeout 300 'swaylock -f  --image ~/Pictures/wallpapers/miko.png' \
           timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          before-sleep 'swaylock -f -c 000000'
+          before-sleep 'swaylock -f --image ~/Pictures/wallpapers/miko.png'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -233,11 +234,14 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Set cursor theme + size for sway itself
+seat * xcursor_theme Bibata-Modern-Classic 24
+
 #
 # Status Bar:
 #
 bar swaybar_command waybar 
 
 include /etc/sway/config.d/*
-output HDMI-A-1 bg /opt/dev-container/Pictures/wallpapers/mona.jpg fill
-output DP-1 bg /opt/dev-container/Pictures/wallpapers/sandy.png fill
+output HDMI-A-1 bg /home/mingos/Pictures/wallpapers/mona.jpg fill
+output DP-1 bg /home/mingos/Pictures/wallpapers/sandy.png fill
