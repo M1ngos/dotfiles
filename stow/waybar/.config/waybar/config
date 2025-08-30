@@ -10,18 +10,19 @@
     "modules-left": [
         "sway/workspaces",
         "sway/mode",
-        "sway/scratchpad"
+	"user",
+        "sway/scratchpad",
+ 	"mpris"
     ],
     "modules-center": [
-        "sway/window",
+        "sway/window"
     ],
     "modules-right": [
-        "mpris",
         "idle_inhibitor",
 	"cpu",
 	"memory",
 	"temperature",
-        "load",
+	"custom/gpu_temp",
 	"wireplumber",
         "backlight",
 	"network",
@@ -35,15 +36,22 @@
         "enable-bar-scroll": true,
         "disable-scroll-wraparound": true,
         "format": "{icon}",
-        "format-icons": {
+         "format-icons": {
             "1": "",
-            "2": "",
+            "2": "",
             "3": "",
+            "5": "",
             "4": "",
-            "5": "",
             "9": "",
             "10": ""
         }
+    },
+    "user":{
+	"format": "  {user} up {work_d} days  ",	
+        "interval": 60,
+        "height": 30,
+        "width": 30,
+        "icon": true
     },
     "sway/window": {
         "format": "{title}",
@@ -99,12 +107,15 @@
         "format": "{}% "
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+	"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+	"critical-threshold": 80,
+  	"format": "CPU {temperatureC}°C ",
+  	"tooltip": true
+    }, 
+    "custom/gpu_temp": {
+	  "exec": "awk '{print int($1/1000)\"°C\"}' /sys/class/hwmon/hwmon1/temp1_input",
+	  "interval": 5,
+	  "format": "GPU {} "
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -169,10 +180,10 @@
         "format": "{icon}",
         "format-icons": {
             "1": "",
-            "2": "",
+            "2": "",
             "3": "",
+            "5": "",
             "4": "",
-            "5": "",
             "9": "",
             "10": ""
         }
@@ -185,7 +196,7 @@
     "sway/mode": {
         "format": "{}"
     },
-        "sway/scratchpad": {
+    "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],

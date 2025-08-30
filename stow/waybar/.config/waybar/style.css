@@ -99,11 +99,18 @@ button:hover {
 #memory,
 #cpu,
 #temperature,
+#custom-gpu_temp,
 #network,
+#user
 #load {
     padding: 0 10px;
     background-color: #282828;
     color: #ebdbb2;
+}
+
+#user {
+	background-color: #282828;
+	color: #ebdbb2;
 }
 
 #mode {
@@ -177,3 +184,14 @@ label:focus {
 #scratchpad.empty {
     background: transparent;
 }
+
+#temperature.critical {
+  color: #fb4934; /* red if over critical-threshold */
+  font-weight: bold;
+}
+
+#custom-gpu_temp.critical {
+  color: #fb4934;
+  font-weight: bold;
+}
+
